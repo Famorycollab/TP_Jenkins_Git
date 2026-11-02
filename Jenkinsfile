@@ -40,6 +40,12 @@ pipeline {
                 bat 'echo === Fin du build ==='
                 bat 'echo SUCCESS'
             }
+            stage('Archivage des fichiers') {
+    steps {
+        archiveArtifacts artifacts: 'index.html, style.css',
+                         fingerprint: true
+    }
+}
         }
     }
 
