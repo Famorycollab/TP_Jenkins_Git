@@ -35,11 +35,12 @@ pipeline {
             }
         }
 
-        stage('Etape 4 : Fin du build') {
-            steps {
-                bat 'echo === Fin du build ==='
-                bat 'echo SUCCESS'
-            }
+       stage('Etape 4 : Test d erreur') {
+    steps {
+        bat 'echo === Test d erreur ==='
+        bat 'exit /b 1'
+    }
+}
         }
 
         stage('Archivage des fichiers') {
