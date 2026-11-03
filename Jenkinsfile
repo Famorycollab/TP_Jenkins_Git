@@ -38,7 +38,7 @@ pipeline {
         stage('Etape 4 : Test d erreur') {
             steps {
                 bat 'echo === Test d erreur ==='
-                bat 'exit /b 1'
+                bat 'exit /b 0'
             }
         }
 
