@@ -1,0 +1,47 @@
+
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                 echo 'Verification des fichier'              
+                 bat 'if not  existe  index.html exit /b 1'
+                 bat 'if not existe style.css exit /b 1'
+            }
+        }
+
+        stage('Test ') {
+            steps {
+                 echo ===Verification du  fichier  HTML ==='
+                bat 'findstr/c:"<html"index.html'
+                bat 'findstr C:"<h1>"index.html '
+            }
+        }
+
+        stage('Delivey') {
+            steps {
+                echo 'Archivage du Site Web'
+                
+            }
+        }
+
+      
+
+   
+    }
+
+    post {
+        success {
+            echo 'Build  Succes'
+        }
+        failure {
+            echo 'Build Echec'
+        }
+    }
+}
+
