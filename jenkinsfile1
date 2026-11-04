@@ -32,9 +32,6 @@ pipeline {
 
       
 
-   
-    }
-
     post {
         success {
             echo 'Build  Succes'
