@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -9,35 +8,35 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                 echo 'Verification des fichier'              
-                 bat 'if not  existe  index.html exit /b 1'
-                 bat 'if not existe style.css exit /b 1'
+                 echo 'Vérification des fichiers...'              
+                 bat 'if not exist index.html exit /b 1'
+                 bat 'if not exist style.css exit /b 1'
             }
         }
 
-        stage('Test ') {
+        stage('Test') {
             steps {
-                 echo ===Verification du  fichier  HTML ==='
-                bat 'findstr/c:"<html"index.html'
-                bat 'findstr C:"<h1>"index.html '
+                echo '=== Vérification du fichier HTML ==='
+                bat 'findstr /c:"<html" index.html'
+                bat 'findstr /c:"<h1>" index.html'
             }
         }
 
-        stage('Delivey') {
+        stage('Delivery') {
             steps {
                 echo 'Archivage du Site Web'
-                
+                // Exemple pour archiver si vous le souhaitez :
+                // archiveArtifacts artifacts: 'index.html, style.css', allowableEmptyArchive: false
             }
         }
-
-      
+    } // Fin du bloc stages (qui manquait)
 
     post {
         success {
-            echo 'Build  Succes'
+            echo 'Build Succès'
         }
         failure {
-            echo 'Build Echec'
+            echo 'Build Échec'
         }
     }
-}
+} // Fin du bloc pipeline (qui manquait)
