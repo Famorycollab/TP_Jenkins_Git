@@ -16,7 +16,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo '=== Vérification du fichier HTML ==='
+                echo 'Vérification du fichier HTML'
                 bat 'findstr /c:"<html" index.html'
                 bat 'findstr /c:"<h1>" index.html'
             }
@@ -25,11 +25,10 @@ pipeline {
         stage('Delivery') {
             steps {
                 echo 'Archivage du Site Web'
-                // Exemple pour archiver si vous le souhaitez :
                 // archiveArtifacts artifacts: 'index.html, style.css', allowableEmptyArchive: false
             }
         }
-    } // Fin du bloc stages (qui manquait)
+    } 
 
     post {
         success {
