@@ -25,7 +25,6 @@ pipeline {
         stage('Delivery') {
             steps {
                 echo 'Archivage du Site Web'
-                // archiveArtifacts artifacts: 'index.html, style.css', allowableEmptyArchive: false
             }
         }
     } 
