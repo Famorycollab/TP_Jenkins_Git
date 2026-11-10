@@ -37,4 +37,4 @@ pipeline {
             echo 'Build Échec'
         }
     }
-} // Fin du bloc pipeline (qui manquait)
+}
